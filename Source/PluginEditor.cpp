@@ -66,7 +66,7 @@ VstdecoderAudioProcessorEditor::VstdecoderAudioProcessorEditor(VstdecoderAudioPr
     {
         tb_loadJSON.reset(new juce::TextButton("new button"));
         addAndMakeVisible(tb_loadJSON.get());                                      //Santi: (16) TextButton LoadJSON. Loads loudspeakers directions from a JSON file.
-        tb_loadJSON->setButtonText(TRANS("Import File"));
+        tb_loadJSON->setButtonText(TRANS("Import"));
         tb_loadJSON->setConnectedEdges(juce::Button::ConnectedOnRight);
         //tb_loadJSON->addListener(this);
         tb_loadJSON->setColour(juce::TextButton::buttonColourId, juce::Colour(0xff14889e));
@@ -78,7 +78,7 @@ VstdecoderAudioProcessorEditor::VstdecoderAudioProcessorEditor(VstdecoderAudioPr
     {
         tb_saveJSON.reset(new juce::TextButton("new button"));
         addAndMakeVisible(tb_saveJSON.get());                                      //Santi: (17) TextButton SaveJSON. Saves the current loudspeakers directions to a JSON file.
-        tb_saveJSON->setButtonText(TRANS("Export File"));
+        tb_saveJSON->setButtonText(TRANS("Export"));
         tb_saveJSON->setConnectedEdges(juce::Button::ConnectedOnLeft);
         //tb_saveJSON->addListener(this);
         tb_saveJSON->setColour(juce::TextButton::buttonColourId, juce::Colour(0xff224d97));
