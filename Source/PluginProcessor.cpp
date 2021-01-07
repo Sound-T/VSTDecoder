@@ -12,7 +12,9 @@
 #include "PluginEditor.h"
 
 //==============================================================================
-VstdecoderAudioProcessor::VstdecoderAudioProcessor()                                        //Santi: Constructor of the class 'AudioProcessor'
+                                                                                                        //Santi: Constructor of the class 'AudioProcessor'. Here, the new number of inputs and outputs must be set, as it is a plug-in dedicated to Ambisonic signals.
+                                                                                                        //All the parameters that need to be inicialized, they do it here. It happens once the plugin or the app is inicialized.
+VstdecoderAudioProcessor::VstdecoderAudioProcessor()
 #ifndef JucePlugin_PreferredChannelConfigurations
      : AudioProcessor (BusesProperties()
                      #if ! JucePlugin_IsMidiEffect
@@ -26,16 +28,17 @@ VstdecoderAudioProcessor::VstdecoderAudioProcessor()                            
 {
 }
 
-VstdecoderAudioProcessor::~VstdecoderAudioProcessor()                                       //Santi: Destructor of the class 'AudioProcessor'                                     
+VstdecoderAudioProcessor::~VstdecoderAudioProcessor()                                                   //Santi: Destructor of the class 'AudioProcessor'. Here is where things get shut down. If we have pointers that need to be destroyed 
 {
 }
 
 //==============================================================================
+                                                                                                        //Santi: 'getName()'. Returns the name of this processor. 
 const String VstdecoderAudioProcessor::getName() const
 {
     return JucePlugin_Name;
 }
-
+                                                                                                        //Santi: 'acceptsMidi()'. Returns true if the processor wants MIDI messages. 
 bool VstdecoderAudioProcessor::acceptsMidi() const
 {
    #if JucePlugin_WantsMidiInput
@@ -44,7 +47,7 @@ bool VstdecoderAudioProcessor::acceptsMidi() const
     return false;
    #endif
 }
-
+                                                                                                        //Santi: 'producesMidi()'. Returns true if the processor produces MIDI messages. 
 bool VstdecoderAudioProcessor::producesMidi() const
 {
    #if JucePlugin_ProducesMidiOutput
@@ -53,7 +56,7 @@ bool VstdecoderAudioProcessor::producesMidi() const
     return false;
    #endif
 }
-
+                                                                                                        //Santi: 'isMidiEffect()'. Returns true if this is a MIDI effect plug-in and does no audio processing. 
 bool VstdecoderAudioProcessor::isMidiEffect() const
 {
    #if JucePlugin_IsMidiEffect
@@ -62,37 +65,40 @@ bool VstdecoderAudioProcessor::isMidiEffect() const
     return false;
    #endif
 }
-
+                                                                                                        //Santi: 'getTailLengthSeconds()'. Returns the length of the processor's tail, in seconds.
 double VstdecoderAudioProcessor::getTailLengthSeconds() const
 {
     return 0.0;
 }
-
+                                                                                                        //Santi: 'getNumPrograms()'. Returns the number of preset programs the processor supports.
+                                                                                                                                    //The value returned must be valid as soon as this object is created, and must not change over its lifetime.
+                                                                                                                                    //This value shouldn't be less than 1. 
 int VstdecoderAudioProcessor::getNumPrograms()
 {
     return 1;   // NB: some hosts don't cope very well if you tell them there are 0 programs,
                 // so this should be at least 1, even if you're not really implementing programs.
 }
-
+                                                                                                        //Santi: 'getCurrentProgram()'. Returns the number of the currently active program. 
 int VstdecoderAudioProcessor::getCurrentProgram()
 {
     return 0;
 }
-
+                                                                                                        //Santi: 'setCurrentProgram()'. Called by the host to change the current program. 
 void VstdecoderAudioProcessor::setCurrentProgram (int index)
 {
 }
-
+                                                                                                        //Santi: 'getProgramName()'. Must return the name of a given program. 
 const String VstdecoderAudioProcessor::getProgramName (int index)
 {
     return {};
 }
-
+                                                                                                        //Santi: 'changeProgramName()'. Called by the host to rename a program. 
 void VstdecoderAudioProcessor::changeProgramName (int index, const String& newName)
 {
 }
 
 //==============================================================================
+                                                                                                        //Santi: 'prepareToPlay()'. It is called before the playback to prepare correctly the audio processor. From this function we can call the methods like ‘getTotalNumInputChannels()’ and ‘getTotalNumOutputChannels()’
 void VstdecoderAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
     // Use this method as the place to do any pre-playback
@@ -129,7 +135,7 @@ bool VstdecoderAudioProcessor::isBusesLayoutSupported (const BusesLayout& layout
 }
 #endif
                                                                                                         //Santi: 'processBlock()'. Most important method. It makes the processing of every audio blocks. In this method, we must make the programming that we would likre to apply to the audio.
-                                                                                                        //      It receives as input a a pointer to the audio buffer and other to the Midi buffer.
+                                                                                                                //It receives as input a a pointer to the audio buffer and other to the Midi buffer.
 void VstdecoderAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
     ScopedNoDenormals noDenormals;
@@ -176,13 +182,15 @@ AudioProcessorEditor* VstdecoderAudioProcessor::createEditor()
 //}
 
 //==============================================================================
+                                                                                                        //Santi: 'get StateInformation()'. It basically takes a snapshot of all the parameters, all of the stuff that's happening in our plugin.                
+                                                                                                                //This method takes the snapshot of where those parameters are set, saves itto an XML file and then converts it to a binary file.
 void VstdecoderAudioProcessor::getStateInformation (MemoryBlock& destData)
 {
     // You should use this method to store your parameters in the memory block.
     // You could do that either as raw data, or use the XML or ValueTree classes
     // as intermediaries to make it easy to save and load complex data.
 }
-
+                                                                                                        //Santi: 'setStateInformation()'. This must restore the processor's state from a block of data previously created using getStateInformation(). 
 void VstdecoderAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
 {
     // You should use this method to restore your parameters from this memory block,
@@ -190,7 +198,7 @@ void VstdecoderAudioProcessor::setStateInformation (const void* data, int sizeIn
 }
 
 //==============================================================================
-// This creates new instances of the plugin..
+// This creates new instances of the plugin..                                                           //Santi: 'createPluginFilter()'. It returns a new instance of the filter subclass that we are building.
 AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 {
     return new VstdecoderAudioProcessor();
@@ -266,3 +274,16 @@ AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 //        }
 //    }
 //}
+    
+
+const String VstdecoderAudioProcessor::getInputChannelName(int channelIndex) const
+{
+    return String(channelIndex + 1);
+}
+
+const String VstdecoderAudioProcessor::getOutputChannelName(int channelIndex) const
+{
+    return String(channelIndex + 1);
+}
+
+
