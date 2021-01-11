@@ -10,6 +10,9 @@
 
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
+//#include "ambi_dec_internal.h"
+//#include "ambi_dec_internal.c"
+//#include "C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\VSTDecoder\Source\ambi_dec.h"
 
 //==============================================================================
                                                                                                         //Santi: Constructor of the class 'AudioProcessor'. Here, the new number of inputs and outputs must be set, as it is a plug-in dedicated to Ambisonic signals.
@@ -103,6 +106,18 @@ void VstdecoderAudioProcessor::prepareToPlay (double sampleRate, int samplesPerB
 {
     // Use this method as the place to do any pre-playback
     // initialisation that you need..
+
+    nHostBlockSize = samplesPerBlock;                                                                   //Santi: 1024 samplesPerBlock
+    nNumInputs = getTotalNumInputChannels();                                                            //Santi: 2
+    nNumOutputs = getTotalNumOutputChannels();                                                          //Santi: 2
+    nSampleRate = (int)(sampleRate + 0.5);                                                              //Santi: 44100Hz
+    
+    //ambi_dec_init(hAmbi, nSampleRate);
+    //AudioProcessor::setLatencySamples(ambi_dec_getProcessingDelay());
+
+
+
+    nNumInputs; //Santi: Delete this line (I use it just for test and stop the Debug)
 }
 
 void VstdecoderAudioProcessor::releaseResources()
@@ -149,7 +164,7 @@ void VstdecoderAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuf
     // when they first compile a plugin, but obviously you don't need to keep
     // this code if your algorithm always overwrites all the output channels.
     for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
-        buffer.clear (i, 0, buffer.getNumSamples());
+        buffer.clear (i, 0, buffer.getNumSamples());                                                    //Santi: Returns the number of samples allocated in each of the buffer's channels.
 
     // This is the place where you'd normally do the guts of your plugin's
     // audio processing...
@@ -159,7 +174,7 @@ void VstdecoderAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuf
     // interleaved by keeping the same state.
     for (int channel = 0; channel < totalNumInputChannels; ++channel)
     {
-        auto* channelData = buffer.getWritePointer (channel);
+        auto* channelData = buffer.getWritePointer (channel);                                           //Santi: Returns a writeable pointer to one of the buffer's channels.
 
         // ..do something to the data...
     }
@@ -276,12 +291,12 @@ AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 //}
     
 
-const String VstdecoderAudioProcessor::getInputChannelName(int channelIndex) const
+const String VstdecoderAudioProcessor::getInputChannelName(int channelIndex) const                      //Santi: Returns the names of all the available input channels on this device. 
 {
     return String(channelIndex + 1);
 }
 
-const String VstdecoderAudioProcessor::getOutputChannelName(int channelIndex) const
+const String VstdecoderAudioProcessor::getOutputChannelName(int channelIndex) const                     //Santi: Returns the names of all the available output channels on this device. 
 {
     return String(channelIndex + 1);
 }
