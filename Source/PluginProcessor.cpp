@@ -12,7 +12,7 @@
 #include "PluginEditor.h"
 //#include "ambi_dec_internal.h"
 //#include "ambi_dec_internal.c"
-//#include "C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\VSTDecoder\Source\ambi_dec.h"
+#include "C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\SDKs\Spatial_Audio_Framework\examples\include\ambi_dec.h"
 
 //==============================================================================
                                                                                                         //Santi: Constructor of the class 'AudioProcessor'. Here, the new number of inputs and outputs must be set, as it is a plug-in dedicated to Ambisonic signals.

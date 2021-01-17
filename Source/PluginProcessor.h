@@ -47,9 +47,9 @@ enum {
 
 
 
-class VstdecoderAudioProcessor  : public AudioProcessor                                                 //Santi Class 'AudioProcessor'
-                                  //public MultiTimer,                                                  //Santi: HOW COULD I DECLARE THIS CLASSES?
-                                  //public VSTCallbackHandler
+class VstdecoderAudioProcessor : public AudioProcessor,                                                 //Santi Class 'AudioProcessor'
+                                 public MultiTimer
+                                 //public VSTCallbackHandler                                           //Santi: 'VSTCallbackHandler'. An interface to allow an AudioProcessor to send and receive VST specific calls from the host. 
 {
 public:
 
@@ -156,5 +156,5 @@ private:
 
 
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (VstdecoderAudioProcessor)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(VstdecoderAudioProcessor)
 };

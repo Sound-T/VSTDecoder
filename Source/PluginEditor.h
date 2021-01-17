@@ -31,11 +31,16 @@ typedef enum _PEIRO_WARNINGS {                                                  
 //==============================================================================
 /**
 */
-class VstdecoderAudioProcessorEditor  : public AudioProcessorEditor
-                                        //public ComboBox::Listener
-                                        //public Slider::Listener       //Santi: Our editor is a Slider Listener
+class VstdecoderAudioProcessorEditor  : public AudioProcessorEditor,
+                                        public ComboBox::Listener,
+                                        public Slider::Listener       //Santi: Our editor is a Slider Listener
 {
 public:
+
+    virtual void comboBoxChanged(ComboBox* comboBoxThatHasChanged) {};                       //Santi: Implementation of Combobox
+    virtual void sliderValueChanged(Slider* slider) {};
+
+
     VstdecoderAudioProcessorEditor (VstdecoderAudioProcessor&);
     ~VstdecoderAudioProcessorEditor();
 
