@@ -15,7 +15,7 @@
 #include <thread>
 #define CONFIGURATIONHELPER_ENABLE_LOUDSPEAKERLAYOUT_METHODS 1
 #define CONFIGURATIONHELPER_ENABLE_GENERICLAYOUT_METHODS 1
-#include "C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\resources\ConfigurationHelper.h"
+//#include "C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\resources\ConfigurationHelper.h"
 #define BUILD_VER_SUFFIX "" /* String to be added before the version name on the GUI (e.g. beta, alpha etc..) */ 
 
 //==============================================================================
@@ -92,6 +92,11 @@ public:
     //==============================================================================
     const String getName() const override;                                                              //Santi: 'getName()'. Returns the name of this processor. 
 
+    //float getParameter(int index) override;
+    //void setParameter(int index, float newValue) override;                                              //Santi: 'setParameter()' function. It receives 2 parameters, an int called 'index' and a float called 'newValue'.
+
+
+
     bool acceptsMidi() const override;                                                                  //Santi: 'acceptsMidi()'. Returns true if the processor wants MIDI messages. 
     bool producesMidi() const override;                                                                 //Santi: 'producesMidi()'. Returns true if the processor produces MIDI messages.
     bool isMidiEffect() const override;                                                                 //Santi: 'isMidiEffect()'. Returns true if this is a MIDI effect plug-in and does no audio processing. 
@@ -115,8 +120,6 @@ public:
     const String getInputChannelName(int channelIndex) const override;
     const String getOutputChannelName(int channelIndex) const override;
 
-/*    float getParameter(int index) override;                                     
-    void setParameter(int index, float newValue) override; */                                           //Santi: 'setParameter()' function. It receives 2 parameters, an int called 'index' and a float called 'newValue'.
 
 
 

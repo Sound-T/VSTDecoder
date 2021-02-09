@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="lPqQd1" name="VSTDecoder" projectType="audioplug" jucerVersion="5.4.7"
-              companyName="SantiCompany" pluginFormats="buildVST3">
+<JUCERPROJECT id="lPqQd1" name="VSTDecoder" projectType="audioplug" companyName="SantiCompany"
+              pluginFormats="buildVST3" displaySplashScreen="1" jucerFormatVersion="1"
+              includeBinaryInJuceHeader="1" companyEmail="santiago.peiro@hotmail.com">
   <MAINGROUP id="RDdA1k" name="VSTDecoder">
     <GROUP id="{8477D5F4-E314-02B8-4355-56302F93571E}" name="Source">
+      <GROUP id="{89F769BC-5B52-EDF0-993F-7FAF05A0AF47}" name="resources">
+        <FILE id="rNaTQ7" name="ConfigurationHelper.h" compile="0" resource="0"
+              file="Source/resources/ConfigurationHelper.h"/>
+        <FILE id="T42WNi" name="SPARTALookAndFeel.h" compile="0" resource="0"
+              file="Source/resources/SPARTALookAndFeel.h"/>
+      </GROUP>
+      <GROUP id="{21921795-FB87-3E8A-7797-F4C584E77A5C}" name="VSTDecoder">
+        <GROUP id="{4122530A-832F-AE42-4778-B2436404A503}" name="Header Files">
+          <FILE id="K8SVA2" name="vst_decoder.h" compile="0" resource="0" file="Source/VSTDecoder/Header Files/vst_decoder.h"/>
+        </GROUP>
+        <GROUP id="{06BFFFF4-D71B-B9AD-CF5B-7AAB8B5EAE31}" name="Source Files">
+          <FILE id="FENypK" name="vst_decoder.c" compile="1" resource="0" file="Source/VSTDecoder/Source Files/vst_decoder.c"/>
+        </GROUP>
+      </GROUP>
       <FILE id="tJEb7u" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>
       <FILE id="uba2Ud" name="PluginProcessor.h" compile="0" resource="0"
@@ -16,8 +31,10 @@
   <EXPORTFORMATS>
     <VS2019 targetFolder="Builds/VisualStudio2019">
       <CONFIGURATIONS>
-        <CONFIGURATION isDebug="1" name="Debug"/>
-        <CONFIGURATION isDebug="0" name="Release"/>
+        <CONFIGURATION isDebug="1" name="Debug" headerPath="../../../../../SDKs/Spatial_Audio_Framework/framework/include&#10;../../../../../SDKs/Spatial_Audio_Framework/examples/include&#10;../../../../../SDKs/Spatial_Audio_Framework/dependencies/Win64/include&#10;../../../../../SDKs/VST2_SDK&#10;C:/Program Files (x86)/IntelSWTools/compilers_and_libraries/windows/mkl/include&#10;C:\Program Files (x86)\Intel\oneAPI\mkl\latest\include&#10;C:\Program Files (x86)\Intel\oneAPI\mkl\2021.1.1\include&#10;C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\VSTDecoder\Source\VSTDecoder\Source Files&#10;C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\VSTDecoder\Source\VSTDecoder\Header Files"
+                       libraryPath="../../../../../SDKs/Spatial_Audio_Framework/dependencies/Win64/lib"/>
+        <CONFIGURATION isDebug="0" name="Release" headerPath="../../../../../SDKs/Spatial_Audio_Framework/framework/include&#10;../../../../../SDKs/Spatial_Audio_Framework/examples/include&#10;../../../../../SDKs/Spatial_Audio_Framework/dependencies/Win64/include&#10;../../../../../SDKs/VST2_SDK&#10;C:/Program Files (x86)/IntelSWTools/compilers_and_libraries/windows/mkl/include&#10;C:\Program Files (x86)\Intel\oneAPI\mkl\latest\include&#10;C:\Program Files (x86)\Intel\oneAPI\mkl\2021.1.1\include&#10;C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\VSTDecoder\Source\VSTDecoder\Source Files&#10;C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\VSTDecoder\Source\VSTDecoder\Header Files"
+                       libraryPath="../../../../../SDKs/Spatial_Audio_Framework/dependencies/Win64/lib"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_audio_basics" path="../../../../../../../Documents/JUCE/JUCE-fork/modules"/>

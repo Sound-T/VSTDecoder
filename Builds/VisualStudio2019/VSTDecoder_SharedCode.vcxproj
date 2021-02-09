@@ -63,11 +63,11 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>C:\Users\SANTI\Documents\VST_SDK\VST3_SDK;..\..\JuceLibraryCode;..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_processors\format_types\VST3_SDK;..\..\JuceLibraryCode;..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules;../../../../../SDKs/Spatial_Audio_Framework/framework/include;../../../../../SDKs/Spatial_Audio_Framework/examples/include;../../../../../SDKs/Spatial_Audio_Framework/dependencies/Win64/include;../../../../../SDKs/VST2_SDK;C:/Program Files (x86)/IntelSWTools/compilers_and_libraries/windows/mkl/include;C:\Program Files (x86)\Intel\oneAPI\mkl\latest\include;C:\Program Files (x86)\Intel\oneAPI\mkl\2021.1.1\include;C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\VSTDecoder\Source\VSTDecoder\Source Files;C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\VSTDecoder\Source\VSTDecoder\Header Files;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;JUCER_VS2019_78A5026=1;JUCE_APP_VERSION=1.0.0;JUCE_APP_VERSION_HEX=0x10000;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_RTAS=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;JUCE_SHARED_CODE=1;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <PrecompiledHeader/>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <AssemblerListingLocation>$(IntDir)\</AssemblerListingLocation>
       <ObjectFileName>$(IntDir)\</ObjectFileName>
       <ProgramDataBaseFileName>$(IntDir)\</ProgramDataBaseFileName>
@@ -103,11 +103,11 @@
     </Midl>
     <ClCompile>
       <Optimization>Full</Optimization>
-      <AdditionalIncludeDirectories>C:\Users\SANTI\Documents\VST_SDK\VST3_SDK;..\..\JuceLibraryCode;..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_processors\format_types\VST3_SDK;..\..\JuceLibraryCode;..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules;../../../../../SDKs/Spatial_Audio_Framework/framework/include;../../../../../SDKs/Spatial_Audio_Framework/examples/include;../../../../../SDKs/Spatial_Audio_Framework/dependencies/Win64/include;../../../../../SDKs/VST2_SDK;C:/Program Files (x86)/IntelSWTools/compilers_and_libraries/windows/mkl/include;C:\Program Files (x86)\Intel\oneAPI\mkl\latest\include;C:\Program Files (x86)\Intel\oneAPI\mkl\2021.1.1\include;C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\VSTDecoder\Source\VSTDecoder\Source Files;C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\VSTDecoder\Source\VSTDecoder\Header Files;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCER_VS2019_78A5026=1;JUCE_APP_VERSION=1.0.0;JUCE_APP_VERSION_HEX=0x10000;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_RTAS=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;JUCE_SHARED_CODE=1;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <PrecompiledHeader/>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <AssemblerListingLocation>$(IntDir)\</AssemblerListingLocation>
       <ObjectFileName>$(IntDir)\</ObjectFileName>
       <ProgramDataBaseFileName>$(IntDir)\</ProgramDataBaseFileName>
@@ -129,6 +129,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <LargeAddressAware>true</LargeAddressAware>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -136,6 +137,7 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\VSTDecoder\Source Files\vst_decoder.c"/>
     <ClCompile Include="..\..\Source\PluginProcessor.cpp"/>
     <ClCompile Include="..\..\Source\PluginEditor.cpp"/>
     <ClCompile Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -474,73 +476,7 @@
     <ClCompile Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_formats\juce_audio_formats.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUBase.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUBuffer.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUCarbonViewBase.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUCarbonViewControl.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUCarbonViewDispatch.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUDispatch.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUInputElement.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUMIDIBase.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUOutputBase.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUOutputElement.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUPlugInDispatch.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUScopeElement.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAAudioChannelLayout.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAAUParameter.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAMutex.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CarbonEventHandler.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAStreamBasicDescription.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAVectorUnit.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\ComponentBase.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\MusicDeviceBase.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\Standalone\juce_StandaloneFilterApp.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\utility\juce_PluginUtilities.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\VST\juce_VST_Wrapper.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\juce_audio_plugin_client_utils.cpp">
@@ -1978,6 +1914,9 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_opengl.cpp"/>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\resources\ConfigurationHelper.h"/>
+    <ClInclude Include="..\..\Source\resources\SPARTALookAndFeel.h"/>
+    <ClInclude Include="..\..\Source\VSTDecoder\Header Files\vst_decoder.h"/>
     <ClInclude Include="..\..\Source\PluginProcessor.h"/>
     <ClInclude Include="..\..\Source\PluginEditor.h"/>
     <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
@@ -2130,44 +2069,6 @@
     <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_formats\format\juce_MemoryMappedAudioFormatReader.h"/>
     <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_formats\sampler\juce_Sampler.h"/>
     <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_formats\juce_audio_formats.h"/>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUBase.h"/>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUBaseHelper.h"/>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUBuffer.h"/>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUCarbonViewBase.h"/>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUCarbonViewControl.h"/>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUDispatch.h"/>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUInputElement.h"/>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUInputFormatConverter.h"/>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUMIDIBase.h"/>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUOutputBase.h"/>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUOutputElement.h"/>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUPlugInDispatch.h"/>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUScopeElement.h"/>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUSilentTimeout.h"/>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUTimestampGenerator.h"/>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUViewLocalizedStringKeys.h"/>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAAtomic.h"/>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAAtomicStack.h"/>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAAudioChannelLayout.h"/>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAAUParameter.h"/>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAAutoDisposer.h"/>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CADebugMacros.h"/>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CADebugPrintf.h"/>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAException.h"/>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAHostTimeBase.h"/>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAMath.h"/>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAMutex.h"/>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CarbonEventHandler.h"/>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAReferenceCounted.h"/>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAStreamBasicDescription.h"/>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAThreadSafeList.h"/>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAVectorUnit.h"/>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAVectorUnitTypes.h"/>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAXException.h"/>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\ComponentBase.h"/>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\MusicDeviceBase.h"/>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\Standalone\juce_StandaloneFilterWindow.h"/>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\Unity\juce_UnityPluginInterface.h"/>
     <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\utility\juce_CarbonVisibility.h"/>
     <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\utility\juce_CheckSettingMacros.h"/>
     <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\utility\juce_FakeMouseMoveGenerator.h"/>
@@ -2175,7 +2076,6 @@
     <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\utility\juce_IncludeSystemHeaders.h"/>
     <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\utility\juce_PluginHostType.h"/>
     <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\utility\juce_WindowsHooks.h"/>
-    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\VST\juce_VSTCallbackHandler.h"/>
     <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\juce_audio_plugin_client.h"/>
     <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_processors\format\juce_AudioPluginFormat.h"/>
     <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_processors\format\juce_AudioPluginFormatManager.h"/>
@@ -2243,6 +2143,7 @@
     <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_processors\format_types\VST3_SDK\public.sdk\source\vst\vsteditcontroller.h"/>
     <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_processors\format_types\VST3_SDK\public.sdk\source\vst\vstparameters.h"/>
     <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_processors\format_types\VST3_SDK\public.sdk\source\vst\vstpresetfile.h"/>
+    <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_processors\format_types\juce_AU_Shared.h"/>
     <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_processors\format_types\juce_AudioUnitPluginFormat.h"/>
     <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_processors\format_types\juce_LADSPAPluginFormat.h"/>
     <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_processors\format_types\juce_VST3Common.h"/>
@@ -2713,6 +2614,7 @@
     <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_opengl\juce_opengl.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\AppConfig.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h"/>
+    <ClInclude Include="..\..\JuceLibraryCode\JucePluginDefines.h"/>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_formats\codecs\flac\Flac Licence.txt"/>

@@ -35,6 +35,45 @@ VstdecoderAudioProcessor::~VstdecoderAudioProcessor()                           
 {
 }
 
+//void VstdecoderAudioProcessor::setParameter(int index, float newValue)
+//{
+//    /* standard parameters */
+//    if (index < k_NumOfParameters) {
+//        switch (index) {
+//        case k_inputOrder:      ambi_dec_setMasterDecOrder(hAmbi, (SH_ORDERS)(int)(newValue * (float)(MAX_SH_ORDER - 1) + 1.5f));
+//            ambi_dec_setDecOrderAllBands(hAmbi, (newValue * (float)(MAX_SH_ORDER - 1) + 1.5f)); break;
+//        case k_channelOrder:    ambi_dec_setChOrder(hAmbi, (int)(newValue * (float)(NUM_CH_ORDERINGS - 1) + 1.5f)); break;
+//        case k_normType:        ambi_dec_setNormType(hAmbi, (int)(newValue * (float)(NUM_NORM_TYPES - 1) + 1.5f)); break;
+//        case k_numLoudspeakers: ambi_dec_setNumLoudspeakers(hAmbi, (int)(newValue * (float)(MAX_NUM_OUTPUTS)+0.5)); break;
+//        case k_decMethod1:      ambi_dec_setDecMethod(hAmbi, 0, (AMBI_DEC_DECODING_METHODS)(int)(newValue * (float)(AMBI_DEC_NUM_DECODING_METHODS - 1) + 1.5f)); break;
+//        case k_decMethod2:      ambi_dec_setDecMethod(hAmbi, 1, (AMBI_DEC_DECODING_METHODS)(int)(newValue * (float)(AMBI_DEC_NUM_DECODING_METHODS - 1) + 1.5f)); break;
+//        case k_maxREweight1:    ambi_dec_setDecEnableMaxrE(hAmbi, 0, (int)(newValue + 0.5f)); break;
+//        case k_maxREweight2:    ambi_dec_setDecEnableMaxrE(hAmbi, 1, (int)(newValue + 0.5f)); break;
+//        case k_diffEQ1:         ambi_dec_setDecNormType(hAmbi, 0, (int)(newValue + 1.5f)); break;
+//        case k_diffEQ2:         ambi_dec_setDecNormType(hAmbi, 0, (int)(newValue + 1.5f)); break;
+//        case k_transitionFreq:  ambi_dec_setTransitionFreq(hAmbi, newValue * (AMBI_DEC_TRANSITION_MAX_VALUE - AMBI_DEC_TRANSITION_MIN_VALUE) + AMBI_DEC_TRANSITION_MIN_VALUE); break;
+//        case k_binauraliseLS:   ambi_dec_setBinauraliseLSflag(hAmbi, (int)(newValue + 0.5f)); break;
+//        }
+//    }
+//    /* loudspeaker direction parameters */
+//    else {
+//        index -= k_NumOfParameters;
+//        float newValueScaled;
+//        if (!(index % 2)) {
+//            newValueScaled = (newValue - 0.5f) * 360.0f;
+//            if (newValueScaled != ambi_dec_getLoudspeakerAzi_deg(hAmbi, index / 2)) {
+//                ambi_dec_setLoudspeakerAzi_deg(hAmbi, index / 2, newValueScaled);
+//            }
+//        }
+//        else {
+//            newValueScaled = (newValue - 0.5f) * 180.0f;
+//            if (newValueScaled != ambi_dec_getLoudspeakerElev_deg(hAmbi, index / 2)) {
+//                ambi_dec_setLoudspeakerElev_deg(hAmbi, index / 2, newValueScaled);
+//            }
+//        }
+//    }
+//}
+
 //==============================================================================
                                                                                                         //Santi: 'getName()'. Returns the name of this processor. 
 const String VstdecoderAudioProcessor::getName() const
