@@ -35,6 +35,40 @@ VstdecoderAudioProcessor::~VstdecoderAudioProcessor()                           
 {
 }
 
+float VstdecoderAudioProcessor::getParameter(int index)
+{
+    return 0;
+    ///* standard parameters */
+    //if (index < k_NumOfParameters) {
+    //    switch (index) {
+    //    case k_inputOrder:      return (float)(ambi_dec_getMasterDecOrder(hAmbi) - 1) / (float)(MAX_SH_ORDER - 1);
+    //    case k_channelOrder:    return (float)(ambi_dec_getChOrder(hAmbi) - 1) / (float)(NUM_CH_ORDERINGS - 1);
+    //    case k_normType:        return (float)(ambi_dec_getNormType(hAmbi) - 1) / (float)(NUM_NORM_TYPES - 1);
+    //    case k_numLoudspeakers: return (float)(ambi_dec_getNumLoudspeakers(hAmbi)) / (float)(MAX_NUM_OUTPUTS);
+    //    case k_decMethod1:      return (float)(ambi_dec_getDecMethod(hAmbi, 0) - 1) / (float)(AMBI_DEC_NUM_DECODING_METHODS - 1);
+    //    case k_decMethod2:      return (float)(ambi_dec_getDecMethod(hAmbi, 1) - 1) / (float)(AMBI_DEC_NUM_DECODING_METHODS - 1);
+    //    case k_maxREweight1:    return (float)(ambi_dec_getDecEnableMaxrE(hAmbi, 0));
+    //    case k_maxREweight2:    return (float)(ambi_dec_getDecEnableMaxrE(hAmbi, 1));
+    //    case k_diffEQ1:         return (float)(ambi_dec_getDecNormType(hAmbi, 0) - 1);
+    //    case k_diffEQ2:         return (float)(ambi_dec_getDecNormType(hAmbi, 1) - 1);
+    //    case k_transitionFreq:  return (ambi_dec_getTransitionFreq(hAmbi) - AMBI_DEC_TRANSITION_MIN_VALUE) / (AMBI_DEC_TRANSITION_MAX_VALUE - AMBI_DEC_TRANSITION_MIN_VALUE);
+    //    case k_binauraliseLS:   return (float)(ambi_dec_getBinauraliseLSflag(hAmbi));
+    //    default: return 0.0f;
+    //    }
+    //}
+    ///* loudspeaker direction parameters */
+    //else {
+    //    index -= k_NumOfParameters;
+    //    if (!(index % 2))
+    //        return (ambi_dec_getLoudspeakerAzi_deg(hAmbi, index / 2) / 360.0f) + 0.5f;
+    //    else
+    //        return (ambi_dec_getLoudspeakerElev_deg(hAmbi, (index - 1) / 2) / 180.0f) + 0.5f;
+    //}
+}
+
+void VstdecoderAudioProcessor::setParameter(int index, float newValue)
+{}
+
 //void VstdecoderAudioProcessor::setParameter(int index, float newValue)
 //{
 //    /* standard parameters */

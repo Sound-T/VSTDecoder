@@ -92,8 +92,8 @@ public:
     //==============================================================================
     const String getName() const override;                                                              //Santi: 'getName()'. Returns the name of this processor. 
 
-    //float getParameter(int index) override;
-    //void setParameter(int index, float newValue) override;                                              //Santi: 'setParameter()' function. It receives 2 parameters, an int called 'index' and a float called 'newValue'.
+    float getParameter(int index) override;
+    void setParameter(int index, float newValue) override;                                              //Santi: 'setParameter()' function. It receives 2 parameters, an int called 'index' and a float called 'newValue'.
 
 
 
