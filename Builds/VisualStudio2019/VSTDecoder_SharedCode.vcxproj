@@ -138,6 +138,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\VSTDecoder\Source Files\vst_decoder.c"/>
+    <ClCompile Include="..\..\Source\VSTDecoder\Source Files\vst_decoder_internal.c"/>
     <ClCompile Include="..\..\Source\PluginProcessor.cpp"/>
     <ClCompile Include="..\..\Source\PluginEditor.cpp"/>
     <ClCompile Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -1916,7 +1917,9 @@
   <ItemGroup>
     <ClInclude Include="..\..\Source\resources\ConfigurationHelper.h"/>
     <ClInclude Include="..\..\Source\resources\SPARTALookAndFeel.h"/>
+    <ClInclude Include="..\..\Source\VSTDecoder\Header Files\_common.h"/>
     <ClInclude Include="..\..\Source\VSTDecoder\Header Files\vst_decoder.h"/>
+    <ClInclude Include="..\..\Source\VSTDecoder\Header Files\vst_decoder_internal.h"/>
     <ClInclude Include="..\..\Source\PluginProcessor.h"/>
     <ClInclude Include="..\..\Source\PluginEditor.h"/>
     <ClInclude Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>

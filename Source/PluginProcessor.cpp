@@ -174,7 +174,7 @@ void VstdecoderAudioProcessor::changeProgramName (int index, const String& newNa
 }
 
 //==============================================================================
-                                                                                                        //Santi: 'prepareToPlay()'. It is called before the playback to prepare correctly the audio processor. From this function we can call the methods like ‘getTotalNumInputChannels()’ and ‘getTotalNumOutputChannels()’
+                                                                                                        //Santi: 'prepareToPlay()'. It is called before the playback to prepare correctly the audio processor. From this function we can call the methods like â€˜getTotalNumInputChannels()â€™ and â€˜getTotalNumOutputChannels()â€™
 void VstdecoderAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
     // Use this method as the place to do any pre-playback

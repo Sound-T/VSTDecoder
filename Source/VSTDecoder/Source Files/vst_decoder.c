@@ -20,9 +20,9 @@ void vst_decoder_create
     void** const phAmbi
 )
 {
-    //ambi_dec_data* pData = (ambi_dec_data*)malloc1d(sizeof(ambi_dec_data));
-    //*phAmbi = (void*)pData;
-    //int i, j, ch, band;
+    /*vst_decoder_data* pData = (vst_decoder_data*)malloc1d(sizeof(vst_decoder_data));
+    *phAmbi = (void*)pData;
+    int i, j, ch, band;*/
 
     //printf(SAF_VERSION_LICENSE_STRING);
 

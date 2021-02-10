@@ -13,10 +13,15 @@
       </GROUP>
       <GROUP id="{21921795-FB87-3E8A-7797-F4C584E77A5C}" name="VSTDecoder">
         <GROUP id="{4122530A-832F-AE42-4778-B2436404A503}" name="Header Files">
+          <FILE id="bWIGu3" name="_common.h" compile="0" resource="0" file="Source/VSTDecoder/Header Files/_common.h"/>
           <FILE id="K8SVA2" name="vst_decoder.h" compile="0" resource="0" file="Source/VSTDecoder/Header Files/vst_decoder.h"/>
+          <FILE id="d3ysDy" name="vst_decoder_internal.h" compile="0" resource="0"
+                file="Source/VSTDecoder/Header Files/vst_decoder_internal.h"/>
         </GROUP>
         <GROUP id="{06BFFFF4-D71B-B9AD-CF5B-7AAB8B5EAE31}" name="Source Files">
           <FILE id="FENypK" name="vst_decoder.c" compile="1" resource="0" file="Source/VSTDecoder/Source Files/vst_decoder.c"/>
+          <FILE id="PXibyV" name="vst_decoder_internal.c" compile="1" resource="0"
+                file="Source/VSTDecoder/Source Files/vst_decoder_internal.c"/>
         </GROUP>
       </GROUP>
       <FILE id="tJEb7u" name="PluginProcessor.cpp" compile="1" resource="0"

@@ -433,6 +433,9 @@
     <ClCompile Include="..\..\Source\VSTDecoder\Source Files\vst_decoder.c">
       <Filter>VSTDecoder\Source\VSTDecoder\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\VSTDecoder\Source Files\vst_decoder_internal.c">
+      <Filter>VSTDecoder\Source\VSTDecoder\Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\PluginProcessor.cpp">
       <Filter>VSTDecoder\Source</Filter>
     </ClCompile>
@@ -2367,7 +2370,13 @@
     <ClInclude Include="..\..\Source\resources\SPARTALookAndFeel.h">
       <Filter>VSTDecoder\Source\resources</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\VSTDecoder\Header Files\_common.h">
+      <Filter>VSTDecoder\Source\VSTDecoder\Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\VSTDecoder\Header Files\vst_decoder.h">
+      <Filter>VSTDecoder\Source\VSTDecoder\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\VSTDecoder\Header Files\vst_decoder_internal.h">
       <Filter>VSTDecoder\Source\VSTDecoder\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\PluginProcessor.h">
