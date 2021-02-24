@@ -1,8 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<Project DefaultTargets="Build"
-         ToolsVersion="16.0"
-         xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
@@ -16,29 +13,25 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{5EC9A11D-CC9E-E8C4-F715-C118A2E0E17A}</ProjectGuid>
   </PropertyGroup>
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props"/>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"
-                 Label="Configuration">
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <WholeProgramOptimization>false</WholeProgramOptimization>
     <PlatformToolset>v142</PlatformToolset>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'"
-                 Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <PlatformToolset>v142</PlatformToolset>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props"/>
-  <ImportGroup Label="ExtensionSettings"/>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
   <ImportGroup Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props"
-            Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')"
-            Label="LocalAppDataPlatform"/>
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
@@ -47,12 +40,12 @@
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\VST3\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">VSTDecoder</TargetName>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(LibraryPath);../../../../../SDKs/Spatial_Audio_Framework/dependencies/Win64/lib;$(SolutionDir)$(Platform)\$(Configuration)\Shared Code</LibraryPath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(LibraryPath);../../../../../SDKs/Spatial_Audio_Framework/dependencies/Win64/lib;C:\Program Files (x86)\IntelSWTools\compilers_and_libraries\windows\mkl\tools\builder;C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\SDKs\Spatial_Audio_Framework\dependencies\Win64\lib;C:\Program Files (x86)\IntelSWTools\compilers_and_libraries\windows\mkl\lib\intel64;C:\Program Files (x86)\IntelSWTools\compilers_and_libraries\windows\mkl\lib\ia32;C:\OpenBLAS-d2b11c4\lapack-netlib\LAPACKE\include;C:\OpenBLAS-d2b11c4\lapack-netlib\CBLAS\include;C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\VSTDecoder\Builds\VisualStudio2019\x64\Debug\VST3;$(SolutionDir)$(Platform)\$(Configuration)\Shared Code</LibraryPath>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)$(Platform)\$(Configuration)\VST3\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\VST3\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">VSTDecoder</TargetName>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
-    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(LibraryPath);../../../../../SDKs/Spatial_Audio_Framework/dependencies/Win64/lib;$(SolutionDir)$(Platform)\$(Configuration)\Shared Code</LibraryPath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(LibraryPath);../../../../../SDKs/Spatial_Audio_Framework/dependencies/Win64/lib;C:\Program Files (x86)\IntelSWTools\compilers_and_libraries\windows\mkl\tools\builder;C:\OpenBLAS-d2b11c4\lapack-netlib\LAPACKE\include;C:\OpenBLAS-d2b11c4\lapack-netlib\CBLAS\include;C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\SDKs\Spatial_Audio_Framework\dependencies\Win64\lib;C:\Program Files (x86)\IntelSWTools\compilers_and_libraries\windows\mkl\lib\intel64;C:\Program Files (x86)\IntelSWTools\compilers_and_libraries\windows\mkl\lib\ia32;C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\VSTDecoder\Builds\VisualStudio2019\x64\Debug\VST3;$(SolutionDir)$(Platform)\$(Configuration)\Shared Code</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Midl>
@@ -60,13 +53,13 @@
       <MkTypLibCompatible>true</MkTypLibCompatible>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <TargetEnvironment>Win32</TargetEnvironment>
-      <HeaderFileName/>
+      <HeaderFileName />
     </Midl>
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_processors\format_types\VST3_SDK;..\..\JuceLibraryCode;..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules;../../../../../SDKs/Spatial_Audio_Framework/framework/include;../../../../../SDKs/Spatial_Audio_Framework/examples/include;../../../../../SDKs/Spatial_Audio_Framework/dependencies/Win64/include;../../../../../SDKs/VST2_SDK;C:/Program Files (x86)/IntelSWTools/compilers_and_libraries/windows/mkl/include;C:\Program Files (x86)\Intel\oneAPI\mkl\latest\include;C:\Program Files (x86)\Intel\oneAPI\mkl\2021.1.1\include;C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\VSTDecoder\Source\VSTDecoder\Source Files;C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\VSTDecoder\Source\VSTDecoder\Header Files;C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\SDKs\Spatial_Audio_Framework\examples\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;JUCER_VS2019_78A5026=1;JUCE_APP_VERSION=1.0.0;JUCE_APP_VERSION_HEX=0x10000;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_RTAS=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_processors\format_types\VST3_SDK;..\..\JuceLibraryCode;..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules;../../../../../SDKs/Spatial_Audio_Framework/examples/include;../../../../../SDKs/Spatial_Audio_Framework/dependencies/Win64/include;C:\Users\SANTI\Documents\SPARTA\SDKs\Spatial_Audio_Framework\dependencies\Win64\include;../../../../../SDKs/VST2_SDK;C:/Program Files (x86)/IntelSWTools/compilers_and_libraries/windows/mkl/include;C:\Program Files (x86)\Intel\oneAPI\mkl\latest\include;C:\Program Files (x86)\Intel\oneAPI\mkl\2021.1.1\include;C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\VSTDecoder\Source\VSTDecoder\Source Files;C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\VSTDecoder\Source\VSTDecoder\Header Files;C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\SDKs\Spatial_Audio_Framework\examples\include;C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\VSTDecoder\Source\Spatial_Audio_Framework\framework\include;C:\Program Files (x86)\IntelSWTools\compilers_and_libraries\windows\mkl\tools\builder;C:\OpenBLAS-d2b11c4\lapack-netlib\LAPACKE\include;C:\OpenBLAS-d2b11c4\lapack-netlib\CBLAS\include;C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\SDKs\Spatial_Audio_Framework\dependencies\Win64\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;SAF_USE_INTEL_MKL;SAF_ENABLE_SOFA_READER_MODULE;JUCER_VS2019_78A5026=1;JUCE_APP_VERSION=1.0.0;JUCE_APP_VERSION_HEX=0x10000;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_RTAS=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -88,17 +81,17 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>$(IntDir)\VSTDecoder.pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>../../../../../SDKs/Spatial_Audio_Framework/dependencies/Win64/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../../../../SDKs/Spatial_Audio_Framework/dependencies/Win64/lib;C:\Program Files (x86)\IntelSWTools\compilers_and_libraries\windows\mkl\tools\builder;C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\SDKs\Spatial_Audio_Framework\dependencies\Win64\lib;C:\Program Files (x86)\IntelSWTools\compilers_and_libraries\windows\mkl\lib\intel64;C:\Program Files (x86)\IntelSWTools\compilers_and_libraries\windows\mkl\lib\ia32;C:\OpenBLAS-d2b11c4\lapack-netlib\LAPACKE\include;C:\OpenBLAS-d2b11c4\lapack-netlib\CBLAS\include;C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\VSTDecoder\Builds\VisualStudio2019\x64\Debug\VST3;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <LargeAddressAware>true</LargeAddressAware>
-      <AdditionalDependencies>VSTDecoder.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>saf_mkl_custom.lib;libszip.lib;libzlib.lib;libhdf5.lib;libhdf5_hl.lib;netcdf.lib;VSTDecoder.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <OutputFile>$(IntDir)\VSTDecoder.bsc</OutputFile>
     </Bscmake>
     <Lib>
-      <AdditionalDependencies>VSTDecoder.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../../../../../SDKs/Spatial_Audio_Framework/dependencies/Win64/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>saf_mkl_custom.lib;libszip.lib;libzlib.lib;libhdf5.lib;libhdf5_hl.lib;netcdf.lib;VSTDecoder.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../../../../../SDKs/Spatial_Audio_Framework/dependencies/Win64/lib;C:\Program Files (x86)\IntelSWTools\compilers_and_libraries\windows\mkl\tools\builder;C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\SDKs\Spatial_Audio_Framework\dependencies\Win64\lib;C:\Program Files (x86)\IntelSWTools\compilers_and_libraries\windows\mkl\lib\intel64;C:\Program Files (x86)\IntelSWTools\compilers_and_libraries\windows\mkl\lib\ia32;C:\OpenBLAS-d2b11c4\lapack-netlib\LAPACKE\include;C:\OpenBLAS-d2b11c4\lapack-netlib\CBLAS\include;C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\VSTDecoder\Builds\VisualStudio2019\x64\Debug\VST3;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -107,12 +100,12 @@
       <MkTypLibCompatible>true</MkTypLibCompatible>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <TargetEnvironment>Win32</TargetEnvironment>
-      <HeaderFileName/>
+      <HeaderFileName />
     </Midl>
     <ClCompile>
       <Optimization>Full</Optimization>
-      <AdditionalIncludeDirectories>..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_processors\format_types\VST3_SDK;..\..\JuceLibraryCode;..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules;../../../../../SDKs/Spatial_Audio_Framework/framework/include;../../../../../SDKs/Spatial_Audio_Framework/examples/include;../../../../../SDKs/Spatial_Audio_Framework/dependencies/Win64/include;../../../../../SDKs/VST2_SDK;C:/Program Files (x86)/IntelSWTools/compilers_and_libraries/windows/mkl/include;C:\Program Files (x86)\Intel\oneAPI\mkl\latest\include;C:\Program Files (x86)\Intel\oneAPI\mkl\2021.1.1\include;C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\VSTDecoder\Source\VSTDecoder\Source Files;C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\VSTDecoder\Source\VSTDecoder\Header Files;C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\SDKs\Spatial_Audio_Framework\examples\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCER_VS2019_78A5026=1;JUCE_APP_VERSION=1.0.0;JUCE_APP_VERSION_HEX=0x10000;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_RTAS=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_processors\format_types\VST3_SDK;..\..\JuceLibraryCode;..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules;../../../../../SDKs/Spatial_Audio_Framework/examples/include;../../../../../SDKs/Spatial_Audio_Framework/dependencies/Win64/include;C:\Users\SANTI\Documents\SPARTA\SDKs\Spatial_Audio_Framework\dependencies\Win64\include;../../../../../SDKs/VST2_SDK;C:/Program Files (x86)/IntelSWTools/compilers_and_libraries/windows/mkl/include;C:\Program Files (x86)\Intel\oneAPI\mkl\latest\include;C:\Program Files (x86)\Intel\oneAPI\mkl\2021.1.1\include;C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\VSTDecoder\Source\VSTDecoder\Source Files;C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\VSTDecoder\Source\VSTDecoder\Header Files;C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\SDKs\Spatial_Audio_Framework\examples\include;C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\VSTDecoder\Source\Spatial_Audio_Framework\framework\include;C:\Program Files (x86)\IntelSWTools\compilers_and_libraries\windows\mkl\tools\builder;C:\OpenBLAS-d2b11c4\lapack-netlib\LAPACKE\include;C:\OpenBLAS-d2b11c4\lapack-netlib\CBLAS\include;C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\SDKs\Spatial_Audio_Framework\dependencies\Win64\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;SAF_USE_INTEL_MKL;SAF_ENABLE_SOFA_READER_MODULE;JUCER_VS2019_78A5026=1;JUCE_APP_VERSION=1.0.0;JUCE_APP_VERSION_HEX=0x10000;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_RTAS=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -136,18 +129,18 @@
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <AdditionalLibraryDirectories>../../../../../SDKs/Spatial_Audio_Framework/dependencies/Win64/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../../../../SDKs/Spatial_Audio_Framework/dependencies/Win64/lib;C:\Program Files (x86)\IntelSWTools\compilers_and_libraries\windows\mkl\tools\builder;C:\OpenBLAS-d2b11c4\lapack-netlib\LAPACKE\include;C:\OpenBLAS-d2b11c4\lapack-netlib\CBLAS\include;C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\SDKs\Spatial_Audio_Framework\dependencies\Win64\lib;C:\Program Files (x86)\IntelSWTools\compilers_and_libraries\windows\mkl\lib\intel64;C:\Program Files (x86)\IntelSWTools\compilers_and_libraries\windows\mkl\lib\ia32;C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\VSTDecoder\Builds\VisualStudio2019\x64\Debug\VST3;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <LargeAddressAware>true</LargeAddressAware>
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
-      <AdditionalDependencies>VSTDecoder.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>saf_mkl_custom.lib;libszip.lib;libzlib.lib;libhdf5.lib;libhdf5_hl.lib;netcdf.lib;VSTDecoder.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <OutputFile>$(IntDir)\VSTDecoder.bsc</OutputFile>
     </Bscmake>
     <Lib>
-      <AdditionalDependencies>VSTDecoder.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../../../../../SDKs/Spatial_Audio_Framework/dependencies/Win64/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>saf_mkl_custom.lib;libszip.lib;libzlib.lib;libhdf5.lib;libhdf5_hl.lib;netcdf.lib;VSTDecoder.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../../../../../SDKs/Spatial_Audio_Framework/dependencies/Win64/lib;C:\Program Files (x86)\IntelSWTools\compilers_and_libraries\windows\mkl\tools\builder;C:\OpenBLAS-d2b11c4\lapack-netlib\LAPACKE\include;C:\OpenBLAS-d2b11c4\lapack-netlib\CBLAS\include;C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\SDKs\Spatial_Audio_Framework\dependencies\Win64\lib;C:\Program Files (x86)\IntelSWTools\compilers_and_libraries\windows\mkl\lib\intel64;C:\Program Files (x86)\IntelSWTools\compilers_and_libraries\windows\mkl\lib\ia32;C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\VSTDecoder\Builds\VisualStudio2019\x64\Debug\VST3;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -157,12 +150,12 @@
     <ClCompile Include="..\..\..\..\..\..\..\..\..\Documents\JUCE\JUCE-fork\modules\juce_audio_plugin_client\juce_audio_plugin_client_VST3.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_plugin_client_VST3.cpp"/>
+    <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_plugin_client_VST3.cpp" />
   </ItemGroup>
-  <ItemGroup/>
+  <ItemGroup />
   <ItemGroup>
-    <ResourceCompile Include=".\resources.rc"/>
+    <ResourceCompile Include=".\resources.rc" />
   </ItemGroup>
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets"/>
-  <ImportGroup Label="ExtensionTargets"/>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
 </Project>

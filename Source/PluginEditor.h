@@ -12,13 +12,14 @@
 
 #include <JuceHeader.h>
 #include "PluginProcessor.h"
-#include "C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\DecoderTest\Source\log2dSlider.h"
-#include "C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\DecoderTest\Source\outputCoordsView.h"
-#include "C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\resources\SPARTALookAndFeel.h"
+#include "log2dSlider.h"
+#include "outputCoordsView.h"
+#include "SPARTALookAndFeel.h"
 
 //#include "outputCoordsView.h"
 //#include "log2dSlider.h"
 #include <thread>
+#include <vst_decoder.h>
 
 typedef enum _PEIRO_WARNINGS {                                                  //Santi: "Enumeration Declaration"
     k_warning_none,
@@ -51,7 +52,7 @@ public:
     //void sliderValueChanged(Slider* slider) override;   // This is an overriden function, and it's part of one of the classes on top. (public Slider::Listener)
 
     //[UserVariables]   -- You can add your own custom variables in this section.
-    PluginProcessor* hVst;
+    VstdecoderAudioProcessor* hVst;
     void* hAmbi;                                                                                              //Santi: What does this '*hAmbi' do? It's a pointer.
     //void timerCallback(int timerID) override;                                                               //Santi: We call 'timerCallback' function with 'timerID' as a parameter.
     std::unique_ptr<OpenGLGraphicsContextCustomShader> shader;
@@ -78,7 +79,7 @@ public:
     void filenameComponentChanged(FilenameComponent*) {
         String directory = fileChooser.getCurrentFile().getFullPathName();
         const char* new_cstring = (const char*)directory.toUTF8();
-        ambi_dec_setSofaFilePath(hAmbi, new_cstring);
+        vst_decoder_setSofaFilePath(hAmbi, new_cstring);
     }
 
     /* warnings */

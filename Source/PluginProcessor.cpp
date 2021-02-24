@@ -10,26 +10,36 @@
 
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
-//#include "ambi_dec_internal.h"
-//#include "ambi_dec_internal.c"
-#include "C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\SDKs\Spatial_Audio_Framework\examples\include\ambi_dec.h"
+#include "vst_decoder_internal.h"
+#include "vst_decoder_internal.c"
+#include "vst_decoder.h"
 
 //==============================================================================
                                                                                                         //Santi: Constructor of the class 'AudioProcessor'. Here, the new number of inputs and outputs must be set, as it is a plug-in dedicated to Ambisonic signals.
                                                                                                         //All the parameters that need to be inicialized, they do it here. It happens once the plugin or the app is inicialized.
-VstdecoderAudioProcessor::VstdecoderAudioProcessor()
-#ifndef JucePlugin_PreferredChannelConfigurations
-     : AudioProcessor (BusesProperties()
-                     #if ! JucePlugin_IsMidiEffect
-                      #if ! JucePlugin_IsSynth
-                       .withInput  ("Input",  AudioChannelSet::stereo(), true)
-                      #endif
-                       .withOutput ("Output", AudioChannelSet::stereo(), true)
-                     #endif
-                       )
-#endif
+//VstdecoderAudioProcessor::VstdecoderAudioProcessor()
+//#ifndef JucePlugin_PreferredChannelConfigurations
+//     : AudioProcessor (BusesProperties()
+//                     #if ! JucePlugin_IsMidiEffect
+//                      #if ! JucePlugin_IsSynth
+//                       .withInput  ("Input",  AudioChannelSet::stereo(), true)
+//                      #endif
+//                       .withOutput ("Output", AudioChannelSet::stereo(), true)
+//                     #endif
+//                       )
+//#endif
+//{
+//}
+
+VstdecoderAudioProcessor::VstdecoderAudioProcessor() :
+    AudioProcessor(BusesProperties()
+        .withInput("Input", AudioChannelSet::discreteChannels(64), true)
+        .withOutput("Output", AudioChannelSet::discreteChannels(64), true))
 {
+    vst_decoder_create(&hAmbi);
+    startTimer(TIMER_PROCESSING_RELATED, 80);
 }
+
 
 VstdecoderAudioProcessor::~VstdecoderAudioProcessor()                                                   //Santi: Destructor of the class 'AudioProcessor'. Here is where things get shut down. If we have pointers that need to be destroyed 
 {
@@ -41,18 +51,18 @@ float VstdecoderAudioProcessor::getParameter(int index)
     ///* standard parameters */
     //if (index < k_NumOfParameters) {
     //    switch (index) {
-    //    case k_inputOrder:      return (float)(ambi_dec_getMasterDecOrder(hAmbi) - 1) / (float)(MAX_SH_ORDER - 1);
-    //    case k_channelOrder:    return (float)(ambi_dec_getChOrder(hAmbi) - 1) / (float)(NUM_CH_ORDERINGS - 1);
-    //    case k_normType:        return (float)(ambi_dec_getNormType(hAmbi) - 1) / (float)(NUM_NORM_TYPES - 1);
-    //    case k_numLoudspeakers: return (float)(ambi_dec_getNumLoudspeakers(hAmbi)) / (float)(MAX_NUM_OUTPUTS);
-    //    case k_decMethod1:      return (float)(ambi_dec_getDecMethod(hAmbi, 0) - 1) / (float)(AMBI_DEC_NUM_DECODING_METHODS - 1);
-    //    case k_decMethod2:      return (float)(ambi_dec_getDecMethod(hAmbi, 1) - 1) / (float)(AMBI_DEC_NUM_DECODING_METHODS - 1);
-    //    case k_maxREweight1:    return (float)(ambi_dec_getDecEnableMaxrE(hAmbi, 0));
-    //    case k_maxREweight2:    return (float)(ambi_dec_getDecEnableMaxrE(hAmbi, 1));
-    //    case k_diffEQ1:         return (float)(ambi_dec_getDecNormType(hAmbi, 0) - 1);
-    //    case k_diffEQ2:         return (float)(ambi_dec_getDecNormType(hAmbi, 1) - 1);
-    //    case k_transitionFreq:  return (ambi_dec_getTransitionFreq(hAmbi) - AMBI_DEC_TRANSITION_MIN_VALUE) / (AMBI_DEC_TRANSITION_MAX_VALUE - AMBI_DEC_TRANSITION_MIN_VALUE);
-    //    case k_binauraliseLS:   return (float)(ambi_dec_getBinauraliseLSflag(hAmbi));
+    //    case k_inputOrder:      return (float)(vst_decoder_getMasterDecOrder(hAmbi) - 1) / (float)(MAX_SH_ORDER - 1);
+    //    case k_channelOrder:    return (float)(vst_decoder_getChOrder(hAmbi) - 1) / (float)(NUM_CH_ORDERINGS - 1);
+    //    case k_normType:        return (float)(vst_decoder_getNormType(hAmbi) - 1) / (float)(NUM_NORM_TYPES - 1);
+    //    case k_numLoudspeakers: return (float)(vst_decoder_getNumLoudspeakers(hAmbi)) / (float)(MAX_NUM_OUTPUTS);
+    //    case k_decMethod1:      return (float)(vst_decoder_getDecMethod(hAmbi, 0) - 1) / (float)(vst_decoder_NUM_DECODING_METHODS - 1);
+    //    case k_decMethod2:      return (float)(vst_decoder_getDecMethod(hAmbi, 1) - 1) / (float)(vst_decoder_NUM_DECODING_METHODS - 1);
+    //    case k_maxREweight1:    return (float)(vst_decoder_getDecEnableMaxrE(hAmbi, 0));
+    //    case k_maxREweight2:    return (float)(vst_decoder_getDecEnableMaxrE(hAmbi, 1));
+    //    case k_diffEQ1:         return (float)(vst_decoder_getDecNormType(hAmbi, 0) - 1);
+    //    case k_diffEQ2:         return (float)(vst_decoder_getDecNormType(hAmbi, 1) - 1);
+    //    case k_transitionFreq:  return (vst_decoder_getTransitionFreq(hAmbi) - vst_decoder_TRANSITION_MIN_VALUE) / (vst_decoder_TRANSITION_MAX_VALUE - vst_decoder_TRANSITION_MIN_VALUE);
+    //    case k_binauraliseLS:   return (float)(vst_decoder_getBinauraliseLSflag(hAmbi));
     //    default: return 0.0f;
     //    }
     //}
@@ -60,9 +70,9 @@ float VstdecoderAudioProcessor::getParameter(int index)
     //else {
     //    index -= k_NumOfParameters;
     //    if (!(index % 2))
-    //        return (ambi_dec_getLoudspeakerAzi_deg(hAmbi, index / 2) / 360.0f) + 0.5f;
+    //        return (vst_decoder_getLoudspeakerAzi_deg(hAmbi, index / 2) / 360.0f) + 0.5f;
     //    else
-    //        return (ambi_dec_getLoudspeakerElev_deg(hAmbi, (index - 1) / 2) / 180.0f) + 0.5f;
+    //        return (vst_decoder_getLoudspeakerElev_deg(hAmbi, (index - 1) / 2) / 180.0f) + 0.5f;
     //}
 }
 
@@ -74,19 +84,19 @@ void VstdecoderAudioProcessor::setParameter(int index, float newValue)
 //    /* standard parameters */
 //    if (index < k_NumOfParameters) {
 //        switch (index) {
-//        case k_inputOrder:      ambi_dec_setMasterDecOrder(hAmbi, (SH_ORDERS)(int)(newValue * (float)(MAX_SH_ORDER - 1) + 1.5f));
-//            ambi_dec_setDecOrderAllBands(hAmbi, (newValue * (float)(MAX_SH_ORDER - 1) + 1.5f)); break;
-//        case k_channelOrder:    ambi_dec_setChOrder(hAmbi, (int)(newValue * (float)(NUM_CH_ORDERINGS - 1) + 1.5f)); break;
-//        case k_normType:        ambi_dec_setNormType(hAmbi, (int)(newValue * (float)(NUM_NORM_TYPES - 1) + 1.5f)); break;
-//        case k_numLoudspeakers: ambi_dec_setNumLoudspeakers(hAmbi, (int)(newValue * (float)(MAX_NUM_OUTPUTS)+0.5)); break;
-//        case k_decMethod1:      ambi_dec_setDecMethod(hAmbi, 0, (AMBI_DEC_DECODING_METHODS)(int)(newValue * (float)(AMBI_DEC_NUM_DECODING_METHODS - 1) + 1.5f)); break;
-//        case k_decMethod2:      ambi_dec_setDecMethod(hAmbi, 1, (AMBI_DEC_DECODING_METHODS)(int)(newValue * (float)(AMBI_DEC_NUM_DECODING_METHODS - 1) + 1.5f)); break;
-//        case k_maxREweight1:    ambi_dec_setDecEnableMaxrE(hAmbi, 0, (int)(newValue + 0.5f)); break;
-//        case k_maxREweight2:    ambi_dec_setDecEnableMaxrE(hAmbi, 1, (int)(newValue + 0.5f)); break;
-//        case k_diffEQ1:         ambi_dec_setDecNormType(hAmbi, 0, (int)(newValue + 1.5f)); break;
-//        case k_diffEQ2:         ambi_dec_setDecNormType(hAmbi, 0, (int)(newValue + 1.5f)); break;
-//        case k_transitionFreq:  ambi_dec_setTransitionFreq(hAmbi, newValue * (AMBI_DEC_TRANSITION_MAX_VALUE - AMBI_DEC_TRANSITION_MIN_VALUE) + AMBI_DEC_TRANSITION_MIN_VALUE); break;
-//        case k_binauraliseLS:   ambi_dec_setBinauraliseLSflag(hAmbi, (int)(newValue + 0.5f)); break;
+//        case k_inputOrder:      vst_decoder_setMasterDecOrder(hAmbi, (SH_ORDERS)(int)(newValue * (float)(MAX_SH_ORDER - 1) + 1.5f));
+//            vst_decoder_setDecOrderAllBands(hAmbi, (newValue * (float)(MAX_SH_ORDER - 1) + 1.5f)); break;
+//        case k_channelOrder:    vst_decoder_setChOrder(hAmbi, (int)(newValue * (float)(NUM_CH_ORDERINGS - 1) + 1.5f)); break;
+//        case k_normType:        vst_decoder_setNormType(hAmbi, (int)(newValue * (float)(NUM_NORM_TYPES - 1) + 1.5f)); break;
+//        case k_numLoudspeakers: vst_decoder_setNumLoudspeakers(hAmbi, (int)(newValue * (float)(MAX_NUM_OUTPUTS)+0.5)); break;
+//        case k_decMethod1:      vst_decoder_setDecMethod(hAmbi, 0, (vst_decoder_DECODING_METHODS)(int)(newValue * (float)(vst_decoder_NUM_DECODING_METHODS - 1) + 1.5f)); break;
+//        case k_decMethod2:      vst_decoder_setDecMethod(hAmbi, 1, (vst_decoder_DECODING_METHODS)(int)(newValue * (float)(vst_decoder_NUM_DECODING_METHODS - 1) + 1.5f)); break;
+//        case k_maxREweight1:    vst_decoder_setDecEnableMaxrE(hAmbi, 0, (int)(newValue + 0.5f)); break;
+//        case k_maxREweight2:    vst_decoder_setDecEnableMaxrE(hAmbi, 1, (int)(newValue + 0.5f)); break;
+//        case k_diffEQ1:         vst_decoder_setDecNormType(hAmbi, 0, (int)(newValue + 1.5f)); break;
+//        case k_diffEQ2:         vst_decoder_setDecNormType(hAmbi, 0, (int)(newValue + 1.5f)); break;
+//        case k_transitionFreq:  vst_decoder_setTransitionFreq(hAmbi, newValue * (vst_decoder_TRANSITION_MAX_VALUE - vst_decoder_TRANSITION_MIN_VALUE) + vst_decoder_TRANSITION_MIN_VALUE); break;
+//        case k_binauraliseLS:   vst_decoder_setBinauraliseLSflag(hAmbi, (int)(newValue + 0.5f)); break;
 //        }
 //    }
 //    /* loudspeaker direction parameters */
@@ -95,14 +105,14 @@ void VstdecoderAudioProcessor::setParameter(int index, float newValue)
 //        float newValueScaled;
 //        if (!(index % 2)) {
 //            newValueScaled = (newValue - 0.5f) * 360.0f;
-//            if (newValueScaled != ambi_dec_getLoudspeakerAzi_deg(hAmbi, index / 2)) {
-//                ambi_dec_setLoudspeakerAzi_deg(hAmbi, index / 2, newValueScaled);
+//            if (newValueScaled != vst_decoder_getLoudspeakerAzi_deg(hAmbi, index / 2)) {
+//                vst_decoder_setLoudspeakerAzi_deg(hAmbi, index / 2, newValueScaled);
 //            }
 //        }
 //        else {
 //            newValueScaled = (newValue - 0.5f) * 180.0f;
-//            if (newValueScaled != ambi_dec_getLoudspeakerElev_deg(hAmbi, index / 2)) {
-//                ambi_dec_setLoudspeakerElev_deg(hAmbi, index / 2, newValueScaled);
+//            if (newValueScaled != vst_decoder_getLoudspeakerElev_deg(hAmbi, index / 2)) {
+//                vst_decoder_setLoudspeakerElev_deg(hAmbi, index / 2, newValueScaled);
 //            }
 //        }
 //    }
@@ -185,8 +195,8 @@ void VstdecoderAudioProcessor::prepareToPlay (double sampleRate, int samplesPerB
     nNumOutputs = getTotalNumOutputChannels();                                                          //Santi: 2
     nSampleRate = (int)(sampleRate + 0.5);                                                              //Santi: 44100Hz
     
-    //ambi_dec_init(hAmbi, nSampleRate);
-    //AudioProcessor::setLatencySamples(ambi_dec_getProcessingDelay());
+    //vst_decoder_init(hAmbi, nSampleRate);
+    //AudioProcessor::setLatencySamples(vst_decoder_getProcessingDelay());
 
 
 
@@ -297,11 +307,11 @@ AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 //void PluginProcessor::saveConfigurationToFile(File destination)
 //{
 //    loudspeakers.removeAllChildren(nullptr);
-//    for (int i = 0; i < ambi_dec_getNumLoudspeakers(hAmbi); i++)
+//    for (int i = 0; i < vst_decoder_getNumLoudspeakers(hAmbi); i++)
 //    {
 //        loudspeakers.appendChild(ConfigurationHelper::
-//            createElement(ambi_dec_getLoudspeakerAzi_deg(hAmbi, i),
-//                ambi_dec_getLoudspeakerElev_deg(hAmbi, i),
+//            createElement(vst_decoder_getLoudspeakerAzi_deg(hAmbi, i),
+//                vst_decoder_getLoudspeakerElev_deg(hAmbi, i),
 //                1.0f,
 //                i + 1,
 //                false,
@@ -352,11 +362,11 @@ AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 //                    channelIDs[j]--;
 //
 //        /* update with the new configuration  */
-//        ambi_dec_setNumLoudspeakers(hAmbi, num_ls);
+//        vst_decoder_setNumLoudspeakers(hAmbi, num_ls);
 //        for (ValueTree::Iterator it = loudspeakers.begin(); it != loudspeakers.end(); ++it) {
 //            if (!((*it).getProperty("Imaginary"))) {
-//                ambi_dec_setLoudspeakerAzi_deg(hAmbi, channelIDs[ls_idx] - 1, (*it).getProperty("Azimuth"));
-//                ambi_dec_setLoudspeakerElev_deg(hAmbi, channelIDs[ls_idx] - 1, (*it).getProperty("Elevation"));
+//                vst_decoder_setLoudspeakerAzi_deg(hAmbi, channelIDs[ls_idx] - 1, (*it).getProperty("Azimuth"));
+//                vst_decoder_setLoudspeakerElev_deg(hAmbi, channelIDs[ls_idx] - 1, (*it).getProperty("Elevation"));
 //                ls_idx++;
 //            }
 //        }

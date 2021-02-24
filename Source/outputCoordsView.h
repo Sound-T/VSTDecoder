@@ -23,6 +23,7 @@
 
 #include "JuceHeader.h"
 #include "PluginProcessor.h"
+#include <_common.h>
 
 //[/Headers]
 
@@ -41,7 +42,7 @@ class outputCoordsView  : public Component,                                     
 {
 public:
     //==============================================================================
-    outputCoordsView (PluginProcessor* ownerFilter, int _maxNCH, int _currentNCH );                     //Santi: Constructor of the 'outputCoordsView' Class
+    outputCoordsView (VstdecoderAudioProcessor* ownerFilter, int _maxNCH, int _currentNCH );                     //Santi: Constructor of the 'outputCoordsView' Class
     ~outputCoordsView() override;
 
     //==============================================================================
@@ -69,7 +70,7 @@ public:
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.                       //Santi: Here we declare some variables
-    PluginProcessor* hVst;
+    VstdecoderAudioProcessor* hVst;
     void* hAmbi;
     void refreshCoords();
     std::unique_ptr<Slider>* aziSliders;

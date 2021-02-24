@@ -11,21 +11,21 @@
 #pragma once
 
 #include <JuceHeader.h>
-//#include "C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\SDKs\Spatial_Audio_Framework\examples\include\ambi_dec.h"
+#include "vst_decoder.h"
 #include <thread>
 #define CONFIGURATIONHELPER_ENABLE_LOUDSPEAKERLAYOUT_METHODS 1
 #define CONFIGURATIONHELPER_ENABLE_GENERICLAYOUT_METHODS 1
-//#include "C:\Users\SANTI\Desktop\SANTI\1-UPC\Q8\TFG\JUCE Projects\resources\ConfigurationHelper.h"
+#include "ConfigurationHelper.h"
 #define BUILD_VER_SUFFIX "" /* String to be added before the version name on the GUI (e.g. beta, alpha etc..) */ 
 
 //==============================================================================
 /**
 */
 
-//typedef enum _TIMERS {                                                                                //Santi: Unblock to declare the timers
-//    TIMER_PROCESSING_RELATED = 1,                                                                     // At the moment, this timers lead to some errors.
-//    TIMER_GUI_RELATED
-//}TIMERS;
+typedef enum _TIMERS {                                                                                //Santi: Unblock to declare the timers
+    TIMER_PROCESSING_RELATED = 1,                                                                     // At the moment, this timers lead to some errors.
+    TIMER_GUI_RELATED
+}TIMERS;
 
 /* Parameter tags: for the default VST GUI */
 enum {
@@ -53,6 +53,11 @@ class VstdecoderAudioProcessor : public AudioProcessor,                         
 {
 public:
 
+    //METHODS OF THE CLASS (Constructor and Destructor)
+    //==============================================================================
+    VstdecoderAudioProcessor();                                                                         //Santi: Constructor
+    ~VstdecoderAudioProcessor();
+
     /* Get functions */
     void* getFXHandle() { return hAmbi; }                                                               //Santi: Returns the 'hAmbi' variable.
     int getCurrentBlockSize() { return nHostBlockSize; }                                                //Santi: Returns the 'nHostBlockSize' variable.
@@ -64,13 +69,7 @@ public:
     void loadConfiguration(const File& presetFile);
     void setLastDir(File newLastDir) { lastDir = newLastDir; }                                          //Santi: Set the last directory used.
     File getLastDir() { return lastDir; };                                                              //Santi: Get the las directory used.
-
-
-
-    //METHODS OF THE CLASS (Constructor and Destructor)
-    //==============================================================================
-    VstdecoderAudioProcessor();                                                                         //Santi: Constructor
-    ~VstdecoderAudioProcessor();                                                                        //Santi: Destructor
+                                                                      //Santi: Destructor
 
     //METHODS OF THE CLASS
     //==============================================================================
@@ -126,7 +125,7 @@ public:
 
 private:
 
-    void* hAmbi;          /* ambi_dec handle */                                                         //Santi: In computer programming, a handle is an abstract reference to a resource that is used when application software references blocks of memory or objects that are managed by another system like a database or an operating system. 
+    void* hAmbi;          /* vst_decoder handle */                                                         //Santi: In computer programming, a handle is an abstract reference to a resource that is used when application software references blocks of memory or objects that are managed by another system like a database or an operating system. 
     int nNumInputs;       /* current number of input channels */
     int nNumOutputs;      /* current number of output channels */
     int nSampleRate;      /* current host sample rate */
@@ -141,9 +140,9 @@ private:
     //    switch (timerID) {
     //    case TIMER_PROCESSING_RELATED:
     //        /* reinitialise codec if needed */
-    //        if (ambi_dec_getCodecStatus(hAmbi) == CODEC_STATUS_NOT_INITIALISED) {
+    //        if (vst_decoder_getCodecStatus(hAmbi) == CODEC_STATUS_NOT_INITIALISED) {
     //            try {
-    //                std::thread threadInit(ambi_dec_initCodec, hAmbi);
+    //                std::thread threadInit(vst_decoder_initCodec, hAmbi);
     //                threadInit.detach();
     //            }
     //            catch (const std::exception& exception) {

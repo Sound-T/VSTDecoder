@@ -93,21 +93,21 @@ VstdecoderAudioProcessorEditor::VstdecoderAudioProcessorEditor(VstdecoderAudioPr
 
 
     /* grab current parameter settings */
-    //CBnumOrder->setSelectedId(ambi_dec_getMasterDecOrder(hAmbi), dontSendNotification);
-    //TBuseDefaultHRIRs->setToggleState(ambi_dec_getUseDefaultHRIRsflag(hAmbi), dontSendNotification);
-    //SL_num_loudspeakers->setValue(ambi_dec_getNumLoudspeakers(hAmbi), dontSendNotification);
-    //CBchFormat->setSelectedId(ambi_dec_getChOrder(hAmbi), dontSendNotification);
-    //CBnormScheme->setSelectedId(ambi_dec_getNormType(hAmbi), dontSendNotification);
-    //s_freqBand->setRange(1, ambi_dec_getMasterDecOrder(hAmbi), 1);
-    //s_freqBand->setValue(ambi_dec_getDecOrderAllBands(hAmbi), dontSendNotification);
-    //TBBinauraliseLS->setToggleState(ambi_dec_getBinauraliseLSflag(hAmbi), dontSendNotification);
-    //CBdec1method->setSelectedId(ambi_dec_getDecMethod(hAmbi, 0), dontSendNotification);
-    //TBdec1EnableMaxrE->setToggleState(ambi_dec_getDecEnableMaxrE(hAmbi, 0), dontSendNotification);
-    //CBdec1normtype->setSelectedId(ambi_dec_getDecNormType(hAmbi, 0), dontSendNotification);
-    //SL_transitionFreq->setRange(AMBI_DEC_TRANSITION_MIN_VALUE, AMBI_DEC_TRANSITION_MAX_VALUE, 0.1f);
-    //SL_transitionFreq->setValue(ambi_dec_getTransitionFreq(hAmbi), dontSendNotification);
-    //CBchFormat->setItemEnabled(CH_FUMA, ambi_dec_getMasterDecOrder(hAmbi) == SH_ORDER_FIRST ? true : false);
-    //CBnormScheme->setItemEnabled(NORM_FUMA, ambi_dec_getMasterDecOrder(hAmbi) == SH_ORDER_FIRST ? true : false);
+    //CBnumOrder->setSelectedId(vst_decoder_getMasterDecOrder(hAmbi), dontSendNotification);
+    //TBuseDefaultHRIRs->setToggleState(vst_decoder_getUseDefaultHRIRsflag(hAmbi), dontSendNotification);
+    //SL_num_loudspeakers->setValue(vst_decoder_getNumLoudspeakers(hAmbi), dontSendNotification);
+    //CBchFormat->setSelectedId(vst_decoder_getChOrder(hAmbi), dontSendNotification);
+    //CBnormScheme->setSelectedId(vst_decoder_getNormType(hAmbi), dontSendNotification);
+    //s_freqBand->setRange(1, vst_decoder_getMasterDecOrder(hAmbi), 1);
+    //s_freqBand->setValue(vst_decoder_getDecOrderAllBands(hAmbi), dontSendNotification);
+    //TBBinauraliseLS->setToggleState(vst_decoder_getBinauraliseLSflag(hAmbi), dontSendNotification);
+    //CBdec1method->setSelectedId(vst_decoder_getDecMethod(hAmbi, 0), dontSendNotification);
+    //TBdec1EnableMaxrE->setToggleState(vst_decoder_getDecEnableMaxrE(hAmbi, 0), dontSendNotification);
+    //CBdec1normtype->setSelectedId(vst_decoder_getDecNormType(hAmbi, 0), dontSendNotification);
+    //SL_transitionFreq->setRange(vst_decoder_TRANSITION_MIN_VALUE, vst_decoder_TRANSITION_MAX_VALUE, 0.1f);
+    //SL_transitionFreq->setValue(vst_decoder_getTransitionFreq(hAmbi), dontSendNotification);
+    //CBchFormat->setItemEnabled(CH_FUMA, vst_decoder_getMasterDecOrder(hAmbi) == SH_ORDER_FIRST ? true : false);
+    //CBnormScheme->setItemEnabled(NORM_FUMA, vst_decoder_getMasterDecOrder(hAmbi) == SH_ORDER_FIRST ? true : false);
 
     /* tooltips */
     {
